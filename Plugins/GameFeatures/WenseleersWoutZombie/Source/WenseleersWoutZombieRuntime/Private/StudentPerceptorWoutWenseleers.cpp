@@ -265,7 +265,6 @@ int32 UStudentPerceptorWoutWenseleers::GetItemPriority(const ABaseItem* Item) co
 		switch (item->GetItemType())
 		{
 		case EItemType::Shotgun:
-			nrAmmo += item->GetValue();
 		case EItemType::Pistol:
 			++nrWeapons;
 			nrAmmo += item->GetValue();
@@ -284,7 +283,7 @@ int32 UStudentPerceptorWoutWenseleers::GetItemPriority(const ABaseItem* Item) co
 
 	if (nrWeapons >= 1)
 	{
-		BlackboardComp->SetValueAsBool(ShouldFleeCombatKey, false);
+		BlackboardComp->ClearValue(ShouldFleeCombatKey);
 	}
 	else
 	{
